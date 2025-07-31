@@ -1,6 +1,4 @@
 import { Stack } from "expo-router";
-import {StatusBar } from 'expo-status-bar';
-import {View} from 'react-native';
 import {useFonts} from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 // import { styles } from "../styles";
@@ -21,10 +19,6 @@ export default function RootLayout() {
   return (
     SplashScreen.hideAsync(),
     <Stack> 
-
-      <View>
-        <StatusBar hidden={true} />
-      </View>
 
       <Stack.Screen 
         name="(tabs)"

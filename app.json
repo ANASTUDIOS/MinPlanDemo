@@ -14,9 +14,12 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor":"#D0D0D0"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "statusBar":{
+        "backgroundColor":"#141414"
+      }
     },
     "web": {
       "bundler": "metro",
@@ -31,13 +34,21 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor":"#D0D0D0"
+        }
+      ],
+      [
+        "expo-calendar",
+        {
+          "calendarPermission": "PlanningCo needs permission to acess your calendar 😊",
+          "reminderPermission": "PlanningCo wants acess to your reminders"
         }
       ],
       "expo-font"
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "backgroundColor":"#D0D0D0"
   }
 }

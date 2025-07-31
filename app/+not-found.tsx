@@ -1,5 +1,5 @@
 import { Link, Stack} from "expo-router";
-import {View} from "react-native";
+import {View, Text} from "react-native";
 import { styles } from "../styles";
 export default function NotFoundScreen() {
   return (
@@ -7,7 +7,7 @@ export default function NotFoundScreen() {
         <Stack.Screen options={{ title: "Oops ! Not Found"}}></Stack.Screen>
         <View style={styles.container}>
             <Link href="/(tabs)" style={styles.link}>
-            404 - Page not found: Go back home
+            <Text> 404 - Page not found: Go back home </Text>
             </Link>
         </View>
 

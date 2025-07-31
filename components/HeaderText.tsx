@@ -1,15 +1,14 @@
 import React from 'react';
 import { styles } from '../styles';
-import { View, Text} from 'react-native';
+import {Text} from 'react-native';
 
 interface myHeaderProps {
     text: string;
+    name: string;
 }
 
-export const HeaderText: React.FC<myHeaderProps> = ({text}) => {
+export const HeaderText: React.FC<myHeaderProps> = ({text, name}) => {
     return (
-        <View style={styles.container}>
-            <Text style={styles.header}>{text}</Text>
-        </View>
+        <Text style={[styles.header, {paddingLeft:40, paddingRight:40, marginTop:40}]}>{text}<Text style={styles.boldtext}>{name}</Text></Text>
     )
 }
