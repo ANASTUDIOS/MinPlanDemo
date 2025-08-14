@@ -52,7 +52,7 @@ export const styles = StyleSheet.create({
     marginTop:32,
     marginLeft:32,
     marginRight:32,
-    borderRadius:5,
+    borderRadius:10,
   },
 
   text: {
@@ -97,7 +97,7 @@ export const styles = StyleSheet.create({
     marginTop:32,
     marginLeft:32,
     marginRight:32,
-    borderRadius:5,
+    borderRadius:10,
     borderBottomLeftRadius:0,
     borderBottomRightRadius:0,
   },
@@ -152,8 +152,6 @@ export const styles = StyleSheet.create({
   },
 
   dropSubCont: {
-    justifyContent: "center",
-    // alignItems: "center",
     backgroundColor: colors.background,
     fontFamily: "Brico-Regular",
     paddingLeft:10,
@@ -164,8 +162,8 @@ export const styles = StyleSheet.create({
     marginTop:-5,
     marginLeft:32,
     marginRight:32,
-    borderBottomLeftRadius:5,
-    borderBottomRightRadius:5,
+    borderBottomLeftRadius:10,
+    borderBottomRightRadius:10,
     borderWidth:2,
     borderColor:"#373737",
     fontSize: 16,

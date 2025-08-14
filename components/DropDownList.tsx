@@ -8,13 +8,7 @@ interface DropDownProps {
 
 }
 
-const info = [
-    'Item 1: Task 1 is over due!!',
-    'Remmember to Fill out all tabs!',
-    'Congrats on your first Task',
-    'Congrats on your first Task',
-    'Congrats on your first Task',
-    'Congrats on your first Task',
+const info:string[] = [
 ];
 
 export default function DropedDown({name}: DropDownProps){
@@ -24,7 +18,7 @@ export default function DropedDown({name}: DropDownProps){
 
   const toggleThings = () => {
     setIsOpen(!isOpen);
-    setViewHeight(viewHeight === 90 ? 350:90);
+    setViewHeight(viewHeight === 90 ? (90+50*(info.length+1)):90);
     // setTasks(task ==="" ? "hello":"hello");
   }
 
