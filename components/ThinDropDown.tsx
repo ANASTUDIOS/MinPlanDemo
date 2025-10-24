@@ -1,30 +1,35 @@
-import React, {useState} from 'react';
-import { colors, styles } from '../styles';
-import {View, Text, FlatList, TextInput} from 'react-native'; // TouchableOpacity
+import Entypo from '@expo/vector-icons/Entypo';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { useState } from 'react';
+import { FlatList, Text, TextInput, View } from 'react-native'; // TouchableOpacity
+import { colors, styles } from '../styles';
 
 interface DropDownProps {
   name?: string;
+  num?:number;
+  boo?:boolean;
 }
 
-export default function ThinDropedDown({name}: DropDownProps){
+export default function ThinDropedDown({name,num,boo}: DropDownProps){
   
   const [list, setList] = useState<string[]>([
   ]);
   
   const [isOpen, setIsOpen] = useState(false);
   const [viewHeight, setViewHeight] = useState(79);
+  const [isActive, setActive] = useState(false);
+  const [Color, setColor] = useState( "#4F4444");
 
   const toggleThings = () => {
     setIsOpen(!isOpen);
 
     if(list.length === 0){
-      setViewHeight(viewHeight === 79? (83+40*1):79);
+      setViewHeight(viewHeight === 79? (86+41*1):79);
     }else{
-       setViewHeight(viewHeight === 79? (83+40*list.length):79);
+       setViewHeight(viewHeight === 79? (86+41*list.length):79);
     }
   }
 
@@ -33,6 +38,11 @@ export default function ThinDropedDown({name}: DropDownProps){
     if(isOpen === false){
       toggleThings();
     }
+  }
+
+  const ChangeActive = () =>{
+    setActive(!isActive);
+    setColor(Color ===  "#4F4444"? "#FFFBF3":"#4F4444");
   }
 
 
@@ -56,10 +66,18 @@ export default function ThinDropedDown({name}: DropDownProps){
 
 
   return(
-    // marginBottom:MarginBottom
-    <View style = {[styles.dropContainer , {height: viewHeight, marginBottom:0 }]}>
+    <View style = {[styles.UDropDownContainer , {height: viewHeight, marginBottom:0 }]}>
       
-      <View style={[styles.ThinDropdownHeading, {flexDirection: 'row', alignItems:"center", gap:20}]}>
+      <View style={[styles.DDLHeaderContainer, {paddingTop:10, paddingBottom:10, flexDirection: "row", alignItems:"center", gap:num}]}>
+          <Text onPress={toggleThings} style={{color:"#FFFBF3", fontFamily: "Brico-Bold", fontWeight: 600, fontSize: 14, width:240}}>
+            {name}
+            {isOpen ? <FontAwesome5 name="chevron-up" size={16} color="#FFFBF3" /> : <FontAwesome5 name="chevron-down" size={16} color="#FFFBF3" /> }
+          </Text>
+          {boo ? <Ionicons onPress={ChangeActive} name="notifications" color={Color} size={20} /> : <Ionicons name="notifications" color={colors.background} size={20} /> }
+          <Entypo onPress={() => takecare()} name="plus" color="white" size={20} />
+      </View>
+
+      {/* <View style={[styles.ThinDropdownHeading, {flexDirection: 'row', alignItems:"center", gap:20}]}>
         <View style={{width:150, marginRight:50}}>
           <Text style= {{color: "#FFFBF3", fontFamily: "Brico-Bold", fontWeight: 600, fontSize: 14, width:200}} onPress={toggleThings}> 
           {name}{isOpen ? "▲" : "▼"}
@@ -67,12 +85,12 @@ export default function ThinDropedDown({name}: DropDownProps){
         </View>
         <FontAwesome6 onPress={() => takecare()} name="circle-plus" color="white" size={20} />
         <Ionicons name="notifications" color="white" size={20} />
-      </View>
+      </View> */}
       
       {AddItem && (
-        <View style = {[styles.textboxAI, {flexDirection: "row", alignItems:"center", gap:20, marginTop:-2, backgroundColor: colors.headersBg, borderWidth:2, borderColor: "#373737", borderRadius:0, padding:0}]}>
-          <View style={{width:255}}>
-            <TextInput style = {{backgroundColor: colors.headersBg, color:colors.text, fontFamily: "Brico-Regular", fontWeight: 400, fontSize: 14}} maxLength = {24} placeholder="Add new task: (24 Char limit)" placeholderTextColor="#373737" value = {newItem} onChangeText={setNewItem}/>
+        <View style = {[styles.textboxAI, {flexDirection: "row", alignItems:"center", gap:20, marginTop:-2, backgroundColor:colors.headersBg, borderWidth:2, borderColor: "#373737", borderRadius:0, marginLeft:32, marginRight:32}]}>
+          <View style={{width:263}}>
+            <TextInput  selectionColor="#373737" style = {{backgroundColor: colors.headersBg, color:colors.text, fontFamily: "Brico-Regular", fontWeight: 400, fontSize: 14, height:40}} maxLength = {24} placeholder="Add new task: (24 Char limit)" placeholderTextColor="#373737" value = {newItem} onChangeText={setNewItem}/>
           </View>
           <MaterialCommunityIcons name="sticker-check" color="white" size={20} onPress={() => itemManagement(newItem)}/>
         </View>
@@ -84,11 +102,11 @@ export default function ThinDropedDown({name}: DropDownProps){
             data={list} 
             scrollEnabled={false}
             renderItem={({item}) => (
-              <View style={[styles.dropSubCont, {flexDirection: "row", gap:20, alignItems:"center", margin:0}]}>
-                <View style={{width:255}}>
-                  <Text style={styles.dropdownitem}>{item}</Text>
+              <View style={[styles.UItemContainer, {borderRadius:0, flexDirection: "row", gap:20, alignItems:"center", marginLeft:32, marginRight:32}]}>
+                <View style={{width:260}}>
+                  <Text style={[styles.UItem, {borderRadius:0}]}>{item}</Text>
                </View>
-               <FontAwesome name="remove" color="white" size={18} onPress={() => removeItem(item)}/>
+               <FontAwesome6 name="xmark" color="white" size={17} onPress={() => removeItem(item)}/>
               </View>
             )}
           />

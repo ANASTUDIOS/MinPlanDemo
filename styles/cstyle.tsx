@@ -35,14 +35,14 @@ export const styles = StyleSheet.create({
   },
 
   quote: {
-    color: colors.background,
+    color: colors.accent,
     fontFamily: "Brico-Bold",
     fontWeight: 600,
     fontSize: 18,
     textAlign: "center",
-    backgroundColor: colors.accent,
-    // borderWidth: 2,
-    // borderColor:"#373737",
+    backgroundColor: colors.background,
+    borderWidth: 2,
+    borderColor:colors.accent,
 
     paddingTop: 10,
     paddingLeft:50,
@@ -80,29 +80,33 @@ export const styles = StyleSheet.create({
     color: "#FFFBF3",
   },
 
-  dropdownHeading: {
+  DDLHeaderContainer: {
     color: "#FFFBF3",
     fontFamily: "Brico-Bold",
     fontWeight: 600,
     fontSize: 18,
-    textAlign: "center",
+    textAlign: "left",
     backgroundColor: colors.headersBg,
     borderWidth: 2,
     borderColor:"#373737",
 
     width:320,
-    paddingTop:10,
-    paddingBottom:10,
+    paddingLeft:6, 
 
     marginTop:32,
     marginLeft:32,
     marginRight:32,
+
     borderRadius:10,
     borderBottomLeftRadius:0,
     borderBottomRightRadius:0,
   },
 
-    ThinDropdownHeading: {
+  IconPad: {
+    paddingTop:30
+  },
+
+  ThinDropdownHeading: {
     textAlign: "left",
     backgroundColor: colors.headersBg,
     borderWidth: 2,
@@ -127,11 +131,10 @@ export const styles = StyleSheet.create({
     borderColor:"#373737",
     marginLeft:32,
     marginRight:32,
-    width:"auto"
   },
 
 
-  dropdownitem: {
+  UItem: {
     color: "#FFFBF3",
     fontFamily: "FGrotesk-Medium",
     fontWeight: 400,
@@ -139,7 +142,7 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.background,
   },
 
-  dropContainer: {
+  UDropDownContainer: {
     backgroundColor: colors.background, //"#246adaff",
     fontFamily: "Brico-Regular",
     marginBottom:0,
@@ -151,7 +154,7 @@ export const styles = StyleSheet.create({
     display: "flex",
   },
 
-  dropSubCont: {
+  UItemContainer: {
     backgroundColor: colors.background,
     fontFamily: "Brico-Regular",
     paddingLeft:10,
@@ -162,8 +165,6 @@ export const styles = StyleSheet.create({
     marginTop:-5,
     marginLeft:32,
     marginRight:32,
-    borderBottomLeftRadius:10,
-    borderBottomRightRadius:10,
     borderWidth:2,
     borderColor:"#373737",
     fontSize: 16,

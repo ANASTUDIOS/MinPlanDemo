@@ -1,8 +1,9 @@
-import { Tabs } from "expo-router";
-import Entypo from '@expo/vector-icons/Entypo'
-import FontAwesome from '@expo/vector-icons/FontAwesome'
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6'
+import Entypo from '@expo/vector-icons/Entypo';
+import Feather from '@expo/vector-icons/Feather';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { default as FontAwesome6 } from '@expo/vector-icons/FontAwesome6';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { Tabs } from "expo-router";
 import { colors } from "../../styles";
 export default function TabsLayout() {
  
@@ -81,24 +82,6 @@ export default function TabsLayout() {
         }} 
       />
 
-       <Tabs.Screen 
-        name="calendar" 
-        options={{
-          title: "CALENDAR",
-          tabBarLabelStyle: {
-            fontFamily: "FGrotesk-Bold"
-          },
-          headerTitle: "Calendar",
-          headerTitleAlign: "left",
-          headerTitleStyle: {
-          fontFamily: "FGrotesk-Bold",
-          fontSize: 22,
-          },
-          tabBarIcon: ({focused, color}) => 
-          <Entypo name="calendar" size={15} color= "#FFFBF3"/>,
-        }} 
-      />
-
       <Tabs.Screen 
         name="plan" 
         options={{
@@ -114,6 +97,25 @@ export default function TabsLayout() {
           },
           tabBarIcon: ({focused, color}) => 
           <Entypo name="pencil" size={15} color= "#FFFBF3" />,
+        }} 
+      />
+
+       <Tabs.Screen 
+        name="AI" 
+        options={{
+          title: "AI",
+          tabBarLabelStyle: {
+            fontFamily: "FGrotesk-Bold"
+          },
+          headerTitle: "AI",
+          headerTitleAlign: "left",
+          headerTitleStyle: {
+          fontFamily: "FGrotesk-Bold",
+          fontSize: 22,
+          },
+          tabBarIcon: ({focused, color}) => 
+          <Feather name="codesandbox" size={17} color= "#FFFBF3"/>,
+          /*<FontAwesome5 name="brain" size={15} color= "#FFFBF3"/>*/
         }} 
       />
 
