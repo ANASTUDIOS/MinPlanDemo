@@ -29,7 +29,7 @@ export default function TabsLayout() {
 
 
       <Tabs.Screen 
-        name="index" 
+        name="dash" 
         options={{
           title: "HOME",
           tabBarLabelStyle: {

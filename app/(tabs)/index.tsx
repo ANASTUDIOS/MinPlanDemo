@@ -3,6 +3,7 @@ import { ScrollView, Text, View } from "react-native";
 import { HeaderText } from '../../components/HeaderText';
 import { styles } from "../../styles";
 export default function Index() {
+
   const quoteList:string[] = [
     "Keep going! Your future is worth the effort!", 
     "Keep moving and grooving, college awaits you.",
