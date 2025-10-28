@@ -8,5 +8,4 @@ config.resolver.extraNodeModules = {
 };
 
 config.resolver.sourceExts.push('cjs');
-
 module.exports = config;

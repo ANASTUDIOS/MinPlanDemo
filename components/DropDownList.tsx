@@ -1,12 +1,11 @@
+import AntDesign from '@expo/vector-icons/AntDesign';
 import Entypo from '@expo/vector-icons/Entypo';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-import Ionicons from '@expo/vector-icons/Ionicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useState } from 'react';
 import { FlatList, Text, TextInput, View } from 'react-native'; // TouchableOpacity
 import { colors, styles } from '../styles';
-
 interface DropDownProps {
   name?: string;
   note?: boolean;
@@ -16,7 +15,6 @@ interface DropDownProps {
 export default function DroppedDown({name, note, plus}: DropDownProps){
   
   const [list, setList] = useState<string[]>([]);
-  
   const [isOpen, setIsOpen] = useState(false);
   const [viewHeight, setViewHeight] = useState(87);
   const [isActive, setActive] = useState(false);
@@ -68,9 +66,9 @@ export default function DroppedDown({name, note, plus}: DropDownProps){
       <View style={[styles.DDLHeaderContainer, {paddingTop:10, paddingBottom:10, flexDirection: "row", alignItems:"center", gap:10}]}>
           <Text onPress={toggleThings} style={{color:"#FFFBF3", fontFamily: "Brico-Bold", fontWeight: 600, fontSize: 18, width:235}}>
             {name}
-            {isOpen ? <FontAwesome5 name="chevron-up" size={20} color="#FFFBF3" style={{padding:70}} /> : <FontAwesome5 name="chevron-down" size={20} color="#FFFBF3" /> }
+            {isOpen ? <FontAwesome5 name="chevron-up" size={20} color="#4F4444" style={{padding:70}} /> : <FontAwesome5 name="chevron-down" size={20} color= "#4F4444" /> }
           </Text>
-          {note ? <Ionicons onPress={ChangeActive} name="notifications" color={Color} size={20} /> : <Ionicons name="notifications" color={colors.background} size={20} /> }
+          {note ? <AntDesign onPress={ChangeActive} name="star" size={20} color={Color} /> : <AntDesign name="star" size={20} color={colors.background} /> }
           {plus ? <Entypo onPress={() => takecare()} name="plus" color="white" size={25} /> : <Entypo name="plus" color={colors.background} size={25} /> }
       </View>
       

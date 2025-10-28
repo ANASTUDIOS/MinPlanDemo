@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "PlanningCo",
-    "slug": "PlanningCo",
+    "name": "MinPlan",
+    "slug": "MinPlan",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",

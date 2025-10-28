@@ -1,7 +1,7 @@
+import AntDesign from '@expo/vector-icons/AntDesign';
 import Entypo from '@expo/vector-icons/Entypo';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-import Ionicons from '@expo/vector-icons/Ionicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useState } from 'react';
 import { FlatList, Text, TextInput, View } from 'react-native'; // TouchableOpacity
@@ -71,9 +71,9 @@ export default function ThinDropedDown({name,num,boo}: DropDownProps){
       <View style={[styles.DDLHeaderContainer, {paddingTop:10, paddingBottom:10, flexDirection: "row", alignItems:"center", gap:num}]}>
           <Text onPress={toggleThings} style={{color:"#FFFBF3", fontFamily: "Brico-Bold", fontWeight: 600, fontSize: 14, width:240}}>
             {name}
-            {isOpen ? <FontAwesome5 name="chevron-up" size={16} color="#FFFBF3" /> : <FontAwesome5 name="chevron-down" size={16} color="#FFFBF3" /> }
+            {isOpen ? <FontAwesome5 name="chevron-up" size={16} color="#4F4444"/> : <FontAwesome5 name="chevron-down" size={16} color="#4F4444" /> }
           </Text>
-          {boo ? <Ionicons onPress={ChangeActive} name="notifications" color={Color} size={20} /> : <Ionicons name="notifications" color={colors.background} size={20} /> }
+          {boo ?  <AntDesign onPress={ChangeActive} name="star" size={20} color={Color} /> : <AntDesign name="star" size={20} color={colors.background} />}
           <Entypo onPress={() => takecare()} name="plus" color="white" size={20} />
       </View>
 

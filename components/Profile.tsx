@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Button, Text, TextInput, View } from 'react-native';
-import { CreateNewProfile, getProfile } from '../../services/profileService';
+import { CreateNewProfile, getProfile } from '../services/profileService';
 
 export default function ProfileScreen(){
     const [username, setUsername] = useState('');
