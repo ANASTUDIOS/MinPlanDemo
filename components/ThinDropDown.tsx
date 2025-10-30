@@ -90,7 +90,7 @@ export default function ThinDropedDown({name,num,boo}: DropDownProps){
       {AddItem && (
         <View style = {[styles.textboxAI, {flexDirection: "row", alignItems:"center", gap:20, marginTop:-2, backgroundColor:colors.headersBg, borderWidth:2, borderColor: "#373737", borderRadius:0, marginLeft:32, marginRight:32}]}>
           <View style={{width:263}}>
-            <TextInput  selectionColor="#373737" style = {{backgroundColor: colors.headersBg, color:colors.text, fontFamily: "Brico-Regular", fontWeight: 400, fontSize: 14, height:40}} maxLength = {24} placeholder="Add new task: (24 Char limit)" placeholderTextColor="#373737" value = {newItem} onChangeText={setNewItem}/>
+            <TextInput  selectionColor="#373737" style = {{backgroundColor: colors.headersBg, color:colors.text, fontFamily: "Brico-Regular", fontWeight: 400, fontSize: 14, height:40}} maxLength = {40} placeholder="Add new task here:" placeholderTextColor="#373737" value = {newItem} onChangeText={setNewItem}/>
           </View>
           <MaterialCommunityIcons name="sticker-check" color="white" size={20} onPress={() => itemManagement(newItem)}/>
         </View>
