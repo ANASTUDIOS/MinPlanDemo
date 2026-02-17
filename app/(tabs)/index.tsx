@@ -1,4 +1,5 @@
 import DroppedDown from "@/components/DropDownList";
+import { useUser } from "@/hooks/useUser";
 import { ScrollView, Text, View } from "react-native";
 import { HeaderText } from '../../components/HeaderText';
 import { styles } from "../../styles";
@@ -213,6 +214,8 @@ export default function Index() {
 ]
 
   const rand: number = Math.floor(Math.random()*(180)) + 0
+  const {logout, user} = useUser()
+
 
   return (
     <View style={styles.container}>
@@ -222,6 +225,9 @@ export default function Index() {
         <Text style={styles.quote}>{quoteList[rand]}</Text>
         <DroppedDown name="⏳ Weekly Goals  " note={true} plus={true}/>
         <DroppedDown name="❤️ Favorite Colleges  " note={false} plus={true}/>
+        <Text onPress={logout} style={[styles.header, {paddingLeft:60, paddingRight:60}]}>Log out</Text>
+        <Text>{user.email}</Text>
+
         {/* <Text style={[styles.quote, {paddingTop:65, paddingBottom:65, fontFamily:"Brico-Bold", fontWeight:600, backgroundColor:"#0D0D0D"}]}>        PlanningCO *2025       </Text> */}
       </View>
       </ScrollView>

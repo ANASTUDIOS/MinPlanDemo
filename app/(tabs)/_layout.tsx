@@ -1,3 +1,4 @@
+import UserOnly from '@/components/auth/UserOnly';
 import Entypo from '@expo/vector-icons/Entypo';
 import { default as FontAwesome6 } from '@expo/vector-icons/FontAwesome6';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
@@ -6,6 +7,7 @@ import { colors } from "../../styles";
 export default function TabsLayout() {
  
   return (
+    <UserOnly>
     <Tabs
         screenOptions={{
             tabBarActiveTintColor: colors.text,
@@ -80,9 +82,8 @@ export default function TabsLayout() {
         }} 
       />
 
-      
     </Tabs>
+    </UserOnly>
   );
-
 }
 
