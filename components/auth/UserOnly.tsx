@@ -14,8 +14,6 @@ const UserOnly = ({children}:Components) => {
     useEffect(() => {
         if (authChecked && user === null){
             router.replace("/(auth)/login")
-        }else{
-            router.replace("/(tabs)")
         }
     }, [user, authChecked])
 

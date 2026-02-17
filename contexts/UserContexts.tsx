@@ -5,7 +5,7 @@ import { createContext, ReactNode, useEffect, useState } from "react";
 interface UserContextTypes{
     user: any
     login: (email: any, password:any) => Promise<void>;
-    register: (email:any, password:any) => Promise<void>;
+    register: (email:any, password:any, name:any) => Promise<void>;
     logout: () => Promise<void>
     authChecked: any
 }
@@ -29,9 +29,9 @@ export function UserProvider({children}:Components){
         }
     }
 
-    async function register (email: any, password:any){
+    async function register (email: any, password:any, name:any){
         try {
-            await account.create(ID.unique(), email, password)
+            await account.create(ID.unique(), email, password, name)
             await login(email, password)
         } catch (error:any){
             throw Error(error.message)

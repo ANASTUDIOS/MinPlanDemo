@@ -36,7 +36,7 @@ export default function Login() {
         <View><TextInput style={styles.AuthTextBox} textContentType="password" value={password} secureTextEntry={true} onChangeText={setPassword} placeholder="Password" selectionColor={colors.text} placeholderTextColor={colors.text} /></View>
         <View style = {styles.button}><Text style = {{color: colors.background, fontFamily: "Brico-Bold", fontWeight: 400, fontSize: 18, backgroundColor: colors.accent}} onPress={handleClick}> Login </Text></View>
         <Link  href = "../(auth)/register" style={[ styles.text, {fontFamily: "Brico-Bold", fontSize:14, marginTop:10}]}>or Sign up</Link>
-         <Link  href = "/(tabs)" style={[ styles.text, {fontFamily: "Brico-Bold", fontSize:14, marginTop:10}]}>or go to app</Link>
+        {/* <Link  href = "/(tabs)" style={[ styles.text, {fontFamily: "Brico-Bold", fontSize:14, marginTop:10}]}>or go to app</Link> */}
     </View>
     </TouchableWithoutFeedback>
   );
