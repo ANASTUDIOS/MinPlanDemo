@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { Link } from 'expo-router';
 import { useState } from "react";
-import { Keyboard, Text, TextInput, TouchableWithoutFeedback, View } from "react-native";
+import { Keyboard, ScrollView, Text, TextInput, TouchableWithoutFeedback, View } from "react-native";
 import { useUser } from "../../hooks/useUser";
 import { colors, styles } from "../../styles";
 
@@ -28,6 +28,7 @@ export default function Login() {
 
     return (
     <TouchableWithoutFeedback onPress = {Keyboard.dismiss}>
+    <ScrollView showsVerticalScrollIndicator={false}>
     <View style={styles.container}>
         <Text style={[styles.authHeader, { fontFamily: "FGrotesk-Bold", marginTop:40}]}> MinPlan </Text>
         <View style={[styles.divider, {marginTop:20}]}/>
@@ -38,6 +39,7 @@ export default function Login() {
         <Link  href = "../(auth)/register" style={[ styles.text, {fontFamily: "Brico-Bold", fontSize:14, marginTop:10}]}>or Sign up</Link>
         {/* <Link  href = "/(tabs)" style={[ styles.text, {fontFamily: "Brico-Bold", fontSize:14, marginTop:10}]}>or go to app</Link> */}
     </View>
+    </ScrollView>
     </TouchableWithoutFeedback>
   );
 }

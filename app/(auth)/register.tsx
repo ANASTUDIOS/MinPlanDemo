@@ -1,7 +1,7 @@
 import { useUser } from "@/hooks/useUser";
 import { Link } from "expo-router";
 import { useState } from "react";
-import { Keyboard, Text, TextInput, TouchableWithoutFeedback, View } from "react-native";
+import { Keyboard, ScrollView, Text, TextInput, TouchableWithoutFeedback, View } from "react-native";
 import { colors, styles } from "../../styles";
 
 export default function Register() {
@@ -24,6 +24,7 @@ export default function Register() {
 
     return (
     <TouchableWithoutFeedback onPress = {Keyboard.dismiss}>
+    <ScrollView showsVerticalScrollIndicator={false}>
     <View style={styles.container}>
         <Text style={[styles.authHeader, { fontFamily: "FGrotesk-Bold", marginTop:40}]}> MinPlan </Text>
         <View style={[styles.divider, {marginTop:20}]}/>
@@ -34,6 +35,7 @@ export default function Register() {
         <View style = {styles.button}><Text style = {{color: colors.background, fontFamily: "Brico-Bold", fontWeight: 400, fontSize: 18, backgroundColor: colors.accent}} onPress={handleSubmit}> Sign up </Text></View>
         <Link  href = "../(auth)/login" style={[ styles.text, {fontFamily: "Brico-Bold", fontSize:14, marginTop:10}]}>or Sign in</Link>
     </View>
+    </ScrollView>
     </TouchableWithoutFeedback>
   );
 }
