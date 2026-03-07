@@ -33,15 +33,15 @@ export default function Login() {
   
 
     return (
-    <TouchableWithoutFeedback onPress = {Keyboard.dismiss}>
-    <ScrollView showsVerticalScrollIndicator={false} overScrollMode="always">
+    // <TouchableWithoutFeedback onPress = {Keyboard.dismiss}>
+    <ScrollView keyboardShouldPersistTaps= "handled" showsVerticalScrollIndicator={false} overScrollMode="always">
     <View style={styles.container}>
         <Text style={[styles.authHeader, { fontFamily: "FGrotesk-Bold", marginTop:40}]}> MinPlan </Text>
         <View style={[styles.divider, {marginTop:20}]}/>
         <Text style={[ styles.authHeader, {fontFamily: "Brico-Bold", marginTop: 120, marginBottom:30, fontSize:30}]}>Sign in</Text>
-        <View><TextInput style={styles.AuthTextBox} onChangeText={setEmail} value={email}  keyboardType = "email-address" placeholder="Email" selectionColor= {colors.text} placeholderTextColor={colors.text} /></View>
-        <View style={[styles.AuthTextBox , {marginVertical:4, backgroundColor:colors.background, flexDirection: 'row'}]}>
-            <TextInput style={[styles.text, {fontSize: 16, width:250, marginLeft:0, textAlign:'left'}]} textContentType="password" value={password} secureTextEntry={passwordVisible} onChangeText={setPassword} placeholder="Password" selectionColor={colors.text} placeholderTextColor={colors.text} />
+        <View><TextInput style={[styles.AuthTextBox, {height:45}]} onChangeText={setEmail} value={email}  keyboardType = "email-address" placeholder="Email" selectionColor= {colors.text} placeholderTextColor={colors.text} /></View>
+        <View style={[styles.AuthTextBox , {marginVertical:4, backgroundColor:colors.background, flexDirection: 'row', marginBottom:30}]}>
+            <TextInput style={[styles.text, {fontSize: 16, width:250, marginLeft:0, textAlign:'left', height:45}]} textContentType="password" value={password} secureTextEntry={passwordVisible} onChangeText={setPassword} placeholder="Password" selectionColor={colors.text} placeholderTextColor={colors.text} />
             <Pressable onPress={togglePassword}><MaterialCommunityIcons style={{marginLeft:8, marginTop:12.5, padding:0}} color="white" size={20} name={passwordVisible ? "eye-off" : "eye"}/></Pressable>
         </View>
         <View style = {styles.button}><Text style = {{color: colors.background, fontFamily: "Brico-Bold", fontWeight: 400, fontSize: 18, backgroundColor: colors.accent}} onPress={handleClick}> Login </Text></View>
@@ -49,6 +49,6 @@ export default function Login() {
         {/* <Link  href = "/(tabs)" style={[ styles.text, {fontFamily: "Brico-Bold", fontSize:14, marginTop:10}]}>or go to app</Link> */}
     </View>
     </ScrollView>
-    </TouchableWithoutFeedback>
+    // </TouchableWithoutFeedback>
   );
 }

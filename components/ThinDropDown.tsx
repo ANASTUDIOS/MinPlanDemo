@@ -4,9 +4,8 @@ import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useState } from 'react';
-import { FlatList, Text, TextInput, View } from 'react-native'; // TouchableOpacity
+import { FlatList, Text, TextInput, TouchableOpacity, View } from 'react-native'; // TouchableOpacity
 import { colors, styles } from '../styles';
-
 interface DropDownProps {
   name?: string;
   num?:number;
@@ -19,24 +18,25 @@ export default function ThinDropedDown({name,num,boo}: DropDownProps){
   ]);
   
   const [isOpen, setIsOpen] = useState(false);
-  const [viewHeight, setViewHeight] = useState(79);
+  const [viewHeight, setViewHeight] = useState(82);
   const [isActive, setActive] = useState(false);
   const [Color, setColor] = useState( "#4F4444");
 
-  const toggleThings = () => {
+  const toggleThings = (numb:number) => {
     setIsOpen(!isOpen);
 
     if(list.length === 0){
-      setViewHeight(viewHeight === 79? (86+41*1):79);
+      setViewHeight(82+45*numb);
     }else{
-       setViewHeight(viewHeight === 79? (86+41*list.length):79);
+       setViewHeight(viewHeight === 82? (86+45*list.length):82);
     }
   }
 
   const takecare = () =>{
+    setViewHeight(82+45*(list.length+1));
     setAddItem(!AddItem);
     if(isOpen === false){
-      toggleThings();
+      toggleThings(1);
     }
   }
 
@@ -52,15 +52,16 @@ export default function ThinDropedDown({name,num,boo}: DropDownProps){
   const removeItem = (RemoveItem:string) =>{
     const newList = list.filter(item => item !==RemoveItem);
     setList(newList);
+    setViewHeight(86+45*(list.length-1));
   }
 
   const itemManagement = (newItem:string) => {
+    setViewHeight(82+45*(list.length+1));
     if(newItem.trim()){
     setList([...list, newItem]);
     }
     setNewItem('');
     setAddItem(false);
-    toggleThings();
   };
 
 
@@ -69,12 +70,20 @@ export default function ThinDropedDown({name,num,boo}: DropDownProps){
     <View style = {[styles.UDropDownContainer , {height: viewHeight, marginBottom:0 }]}>
       
       <View style={[styles.DDLHeaderContainer, {paddingTop:10, paddingBottom:10, flexDirection: "row", alignItems:"center", gap:num}]}>
-          <Text onPress={toggleThings} style={{color:"#FFFBF3", fontFamily: "Brico-Bold", fontWeight: 600, fontSize: 14, width:240}}>
-            {name}
-            {isOpen ? <FontAwesome5 name="chevron-up" size={16} color="#4F4444"/> : <FontAwesome5 name="chevron-down" size={16} color="#4F4444" /> }
-          </Text>
+          <TouchableOpacity hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }}   onPress={() => toggleThings(0)}>
+            <Text onPress={() => toggleThings(0)} style={{color:"#FFFBF3", fontFamily: "Brico-Bold", fontWeight: 600, fontSize: 14, width:240, paddingLeft:10}}>
+              {name}
+              {isOpen ? <FontAwesome5 name="chevron-up" size={16} color="#4F4444" style={{paddingLeft:10}}/> : <FontAwesome5 name="chevron-down" size={16} color="#4F4444" style={{paddingLeft:10}}/> }
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }}  onPress={ChangeActive}>
           {boo ?  <AntDesign onPress={ChangeActive} name="star" size={20} color={Color} /> : <AntDesign name="star" size={20} color={colors.background} />}
-          <Entypo onPress={() => takecare()} name="plus" color="white" size={20} />
+          </TouchableOpacity>
+
+          <TouchableOpacity hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }} onPress={() => takecare()}>
+            <Entypo style={{marginLeft:-2, marginTop:-2}} name="plus" color="white" size={25} />
+          </TouchableOpacity>
       </View>
 
       {/* <View style={[styles.ThinDropdownHeading, {flexDirection: 'row', alignItems:"center", gap:20}]}>
@@ -88,11 +97,11 @@ export default function ThinDropedDown({name,num,boo}: DropDownProps){
       </View> */}
       
       {AddItem && (
-        <View style = {[styles.textboxAI, {flexDirection: "row", alignItems:"center", gap:20, marginTop:-2, backgroundColor:colors.headersBg, borderWidth:2, borderColor: "#373737", borderRadius:0, marginLeft:32, marginRight:32}]}>
-          <View style={{width:263}}>
-            <TextInput  selectionColor="#373737" style = {{backgroundColor: colors.headersBg, color:colors.text, fontFamily: "Brico-Regular", fontWeight: 400, fontSize: 14, height:40}} maxLength = {40} placeholder="Add new task here:" placeholderTextColor="#373737" value = {newItem} onChangeText={setNewItem}/>
-          </View>
-          <MaterialCommunityIcons name="sticker-check" color="white" size={20} onPress={() => itemManagement(newItem)}/>
+        <View style = {[styles.textboxAI, {flexDirection: "row", alignItems:"center", gap:20, marginTop:-2, backgroundColor:colors.headersBg, borderWidth:2, borderColor: "#373737", borderRadius:0, marginLeft:32, marginRight:32, width:320}]}>
+          <TextInput  selectionColor="#373737" style = {{backgroundColor: colors.headersBg, color:colors.text, fontFamily: "Brico-Regular", fontWeight: 400, fontSize: 14, height:40, width:236, paddingLeft:5}} maxLength = {40} placeholder="Add new task here:" placeholderTextColor="#373737" value = {newItem} onChangeText={setNewItem}/>
+            <TouchableOpacity hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }} onPress={() => itemManagement(newItem)}>
+              <MaterialCommunityIcons style={{paddingLeft:30}}name="sticker-check" color="white" size={20}/>
+            </TouchableOpacity>
         </View>
       )}
 
@@ -106,7 +115,9 @@ export default function ThinDropedDown({name,num,boo}: DropDownProps){
                 <View style={{width:260}}>
                   <Text style={[styles.UItem, {borderRadius:0}]}>{item}</Text>
                </View>
-               <FontAwesome6 name="xmark" color="white" size={17} onPress={() => removeItem(item)}/>
+               <TouchableOpacity hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }} onPress={() => removeItem(item)}>
+                <FontAwesome6 style={{marginLeft:-2, marginBottom:-2,}} name="xmark" color="white" size={20} onPress={() => removeItem(item)}/>
+               </TouchableOpacity>
               </View>
             )}
           />
