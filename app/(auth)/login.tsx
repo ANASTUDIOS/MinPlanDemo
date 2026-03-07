@@ -2,7 +2,7 @@ import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { useNavigation } from "@react-navigation/native";
 import { Link } from 'expo-router';
 import { useState } from "react";
-import { Keyboard, Pressable, ScrollView, Text, TextInput, TouchableWithoutFeedback, View } from "react-native";
+import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import { useUser } from "../../hooks/useUser";
 import { colors, styles } from "../../styles";
 
@@ -40,8 +40,8 @@ export default function Login() {
         <View style={[styles.divider, {marginTop:20}]}/>
         <Text style={[ styles.authHeader, {fontFamily: "Brico-Bold", marginTop: 120, marginBottom:30, fontSize:30}]}>Sign in</Text>
         <View><TextInput style={[styles.AuthTextBox, {height:45}]} onChangeText={setEmail} value={email}  keyboardType = "email-address" placeholder="Email" selectionColor= {colors.text} placeholderTextColor={colors.text} /></View>
-        <View style={[styles.AuthTextBox , {marginVertical:4, backgroundColor:colors.background, flexDirection: 'row', marginBottom:30}]}>
-            <TextInput style={[styles.text, {fontSize: 16, width:250, marginLeft:0, textAlign:'left', height:45}]} textContentType="password" value={password} secureTextEntry={passwordVisible} onChangeText={setPassword} placeholder="Password" selectionColor={colors.text} placeholderTextColor={colors.text} />
+        <View style={[styles.AuthTextBox , {paddingLeft:0, marginVertical:4, backgroundColor:colors.background, flexDirection: 'row', marginBottom:30}]}>
+            <TextInput style={[styles.text, {paddingLeft:10, fontSize: 16, width:250, marginLeft:0, textAlign:'left', height:45}]} textContentType="password" value={password} secureTextEntry={passwordVisible} onChangeText={setPassword} placeholder="Password" selectionColor={colors.text} placeholderTextColor={colors.text} />
             <Pressable onPress={togglePassword}><MaterialCommunityIcons style={{marginLeft:8, marginTop:12.5, padding:0}} color="white" size={20} name={passwordVisible ? "eye-off" : "eye"}/></Pressable>
         </View>
         <View style = {styles.button}><Text style = {{color: colors.background, fontFamily: "Brico-Bold", fontWeight: 400, fontSize: 18, backgroundColor: colors.accent}} onPress={handleClick}> Login </Text></View>

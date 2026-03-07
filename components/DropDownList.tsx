@@ -68,7 +68,7 @@ export default function DroppedDown({name, note, plus}: DropDownProps){
       
       <View style={[styles.DDLHeaderContainer, {paddingTop:10, paddingBottom:10, flexDirection: "row", alignItems:"center", gap:10}]}>
           <TouchableOpacity hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }} onPress={() => toggleThings(0)}>
-            <Text onPress={() => toggleThings(0)} style={{color:"#FFFBF3", fontFamily: "Brico-Bold", fontWeight: 600, fontSize: 16, width:235, flexDirection: 'row'}}>
+            <Text onPress={() => toggleThings(0)} style={{color:"#FFFBF3", fontFamily: "Brico-Bold", fontWeight: 600, fontSize: 19, width:235, flexDirection: 'row'}}>
               {name}
               {isOpen ? <FontAwesome5 name="chevron-up" size={20} color="#4F4444" style={{padding:10}} /> : <FontAwesome5 name="chevron-down" size={20} color= "#4F4444" /> }
             </Text>
