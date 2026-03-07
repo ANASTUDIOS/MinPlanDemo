@@ -193,6 +193,7 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.background, //"#246adaff",
     fontFamily: "Brico-Regular",
     marginBottom: 0,
+    height:85
   },
 
   textbox: {

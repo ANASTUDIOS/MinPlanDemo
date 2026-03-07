@@ -14,6 +14,7 @@ export default function Plan() {
             <ThinDroppedDown name="Scholarships "num={10}/> 
             <ThinDroppedDown name="SAT Test Scores "num={10}/>
             <ThinDroppedDown name="ACT Test Scores "num={10}/>
+            <View style={{marginBottom:300}}></View>
           </ScrollView>
         </View>
         );

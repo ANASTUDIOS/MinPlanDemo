@@ -10,6 +10,7 @@ export default function TabsLayout() {
     <UserOnly>
     <Tabs
         screenOptions={{
+            
             tabBarActiveTintColor: colors.text,
             headerShadowVisible: false,
             headerStyle:{

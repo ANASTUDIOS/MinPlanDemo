@@ -225,8 +225,8 @@ export default function Index() {
         <Text style={styles.quote}>{quoteList[rand]}</Text>
         <DroppedDown name="⏳ Weekly Goals  " note={true} plus={true}/>
         <DroppedDown name="❤️ Favorite Colleges  " note={false} plus={true}/>
-        <View style = {[styles.button, {marginTop:175, backgroundColor:colors.background, borderWidth: 0, }]}><Text onPress={logout} style={[styles.text, {borderRadius: 0, color:"#373737", fontSize:17}]}>Log out</Text></View>
-        <Text style={[styles.text, {marginBottom:30, color:"#373737", fontSize:10}]}>active user: {user.email}</Text>
+        <View style = {[styles.button, {marginTop:175, backgroundColor:colors.background, borderWidth: 0}]}><Text onPress={logout} style={[styles.text, {borderRadius: 0, color:"#373737", fontSize:17}]}>Log out</Text></View>
+        <Text style={[styles.text, {marginBottom:130, color:"#373737", fontSize:10}]}>active user: {user.email}</Text>
         {/* <Text style={[styles.quote, {paddingTop:65, paddingBottom:65, fontFamily:"Brico-Bold", fontWeight:600, backgroundColor:"#0D0D0D"}]}>        PlanningCO *2025       </Text> */}
       </View>
       </ScrollView>

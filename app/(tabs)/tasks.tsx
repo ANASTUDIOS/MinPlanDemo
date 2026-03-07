@@ -14,6 +14,7 @@ export default function Tasks() {
                   <DropedDown name="College Essay Task " num={10} boo={true}/>
                   <DropedDown name="Project/Resume Task " num={10} boo={true}/>
                   </View>
+                  <View style={{marginBottom:300}}></View>
                 </ScrollView>
         </View>
         );

@@ -16,7 +16,7 @@ export default function DroppedDown({name, note, plus}: DropDownProps){
   
   const [list, setList] = useState<string[]>([]);
   const [isOpen, setIsOpen] = useState(false);
-  const [viewHeight, setViewHeight] = useState(87);
+  const [viewHeight, setViewHeight] = useState(84);
   const [isActive, setActive] = useState(false);
   const [Color, setColor] = useState( "#4F4444");
 
@@ -29,9 +29,9 @@ export default function DroppedDown({name, note, plus}: DropDownProps){
     setIsOpen(!isOpen);
 
     if(list.length === 0){
-      setViewHeight(viewHeight === 87? (87+45*1):87);
+      setViewHeight(viewHeight === 84? (84+45*1):84);
     }else{
-       setViewHeight(viewHeight === 87? (87+45*list.length):87);
+       setViewHeight(viewHeight === 84? (84+45*list.length):84);
     }
   }
 
@@ -68,8 +68,8 @@ export default function DroppedDown({name, note, plus}: DropDownProps){
             {name}
             {isOpen ? <FontAwesome5 name="chevron-up" size={20} color="#4F4444" style={{padding:70}} /> : <FontAwesome5 name="chevron-down" size={20} color= "#4F4444" /> }
           </Text>
-          {note ? <AntDesign onPress={ChangeActive} name="star" size={20} color={Color} /> : <AntDesign name="star" size={20} color={colors.background} /> }
-          {plus ? <Entypo onPress={() => takecare()} name="plus" color="white" size={25} /> : <Entypo name="plus" color={colors.background} size={25} /> }
+          {note ? <AntDesign style = {{padding:4, margin:-4,}}onPress={ChangeActive} name="star" size={20} color={Color} /> : <AntDesign name="star" size={20} color={colors.background} /> }
+          {plus ? <Entypo style = {{margin:-3, padding:4}} onPress={() => takecare()} name="plus" color="white" size={25} /> : <Entypo name="plus" color={colors.background} size={25} /> }
       </View>
       
       {AddItem && (
